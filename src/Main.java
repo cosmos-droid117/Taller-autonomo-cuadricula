@@ -8,12 +8,13 @@ public class Main {
         int columnas;
         int opcion = 0;
 
-        while(opcion != 4){
+        while(opcion != 5){
         System.out.println("===== MENU PRINCIPAL =====");
         System.out.println("1. Definir tamaño e imprimir cuadricula");
         System.out.println("2. Elegir que coodenadas rellenar");
         System.out.println("3. Reiniciar cuadricula");
-        System.out.println("4. Salir");
+        System.out.println("4. Mostrar coordenadas seleccionadas");
+        System.out.println("5. Salir");
         System.out.println();
 
         System.out.println("Seleccione una opcion");
@@ -51,12 +52,35 @@ public class Main {
                     break;
 
                 case 2:
+                    if (cuadro_vacio.cuadricula_vacia == null) {
+                        System.out.println("ERROR: Primero debe crear la cuadricula (opcion 1)");
+                        System.out.println();
+                        break;
+                    }
                     cuadro_vacio.rellenar_casillas();
+
                     break;
 
                 case 3:
+                    if (cuadro_vacio.cuadricula_vacia == null) {
+                        System.out.println("ERROR: Primero debe crear la cuadricula (opcion 1)");
+                        System.out.println();
+                        break;
+                    }
+
                     cuadro_vacio.reiniciar_cuadricula();
                     break;
+
+                case 4:
+                    if (cuadro_vacio.cuadricula_vacia == null) {
+                        System.out.println("ERROR: Primero debe crear la cuadricula (opcion 1)");
+                        System.out.println();
+                        break;
+                    }
+
+                    cuadro_vacio.mostrar_coordenadas_seleccionadas();
+                    break;
+
                 default:
                     System.out.println("ERROR: Opcion incorrecta");
                     System.out.println("Vuelva a intentarlo");

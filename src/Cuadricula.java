@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Cuadricula {
     private int x; // COLUMNAS
@@ -6,6 +8,7 @@ public class Cuadricula {
     char relleno = '●';
     char vacio = '◯';
     char[][] cuadricula_vacia;
+    List<int[]> coordenadas_seleccionadas = new ArrayList<>();
 
     public Cuadricula(int y, int x) {
         this.x = x;
@@ -50,6 +53,12 @@ public class Cuadricula {
             n = sc.nextInt();
             sc.nextLine();
             System.out.println();
+
+            if (n < 0){
+                System.out.println("ERROR");
+                System.out.println("No ingrese valores negativos");
+            }
+
         }while(n < 0);
 
         for(int i = 0; i < n; i++){
@@ -93,5 +102,16 @@ public class Cuadricula {
         System.out.println("Cuadricula reiniciada");
         System.out.println();
 
+    }
+    public void mostrar_coordenadas_seleccionadas() {
+        System.out.println("Coordenadas seleccionadas:");
+        if (coordenadas_seleccionadas.isEmpty()) {
+            System.out.println("Aun no se ha rellenado ninguna casilla");
+        } else {
+            for (int[] coord : coordenadas_seleccionadas) {
+                System.out.println("Fila: " + coord[0] + " - Columna: " + coord[1]);
+            }
+        }
+        System.out.println();
     }
 }
