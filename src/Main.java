@@ -80,11 +80,13 @@ public class Main {
 
                     cuadro_vacio.mostrar_coordenadas_seleccionadas();
                     break;
-
                 default:
-                    System.out.println("ERROR: Opcion incorrecta");
-                    System.out.println("Vuelva a intentarlo");
-                    System.out.println();
+                    if(opcion > 5 || opcion < 0) {
+                        System.out.println("ERROR: Opcion incorrecta");
+                        System.out.println("Vuelva a intentarlo");
+                        System.out.println();
+                        break;
+                }
             }
         }
     }
